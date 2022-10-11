@@ -1,0 +1,27 @@
+{
+  "name": "challenge-alkemy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "clear && nodemon src/app.js -e mjs,js,json,ejs,css",
+    "test": "npx jest",
+    "start": "node src/app.js"
+  },
+  "author": "Juan Manuel Fernandez",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.24.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.5.1"
+  }
+}
