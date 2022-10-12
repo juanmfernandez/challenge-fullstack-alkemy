@@ -1,5 +1,5 @@
 const {Router} = require('express');
-const { editFlow, addFlow, getError, getOneBudget, deleteFlow } = require('../controllers/api');
+const { editFlow, addFlow, getError, getOneBudget, deleteFlow, getAllBudgets } = require('../controllers/api');
 const {idValidator, createUpdateValidator} = require('../middlewares/validator.middleware')
 const router = Router();
 
@@ -14,7 +14,8 @@ router.get('/inflow', idValidator, getError)
 */
 
 //Happy routes
-router.get('/', (req, res) => res.json({msg: 'Hello World!'}))
+//router.get('/', (req, res) => res.json({msg: 'Hello World!'}))
+router.get('/', getAllBudgets)
 router.get('/:id', idValidator, getOneBudget)
 
 router.post('/inflow/', createUpdateValidator, addFlow)
