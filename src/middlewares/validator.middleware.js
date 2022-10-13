@@ -8,7 +8,7 @@ const idValidator = [
         .withMessage('El usuario debe ser un id numerico.'),
 ];
 
-const createUpdateValidator = [
+const createValidator = [
     body("idUser")
         .notEmpty()
         .withMessage('Debe especificar un usuario para la gestión.')
@@ -32,4 +32,20 @@ const createUpdateValidator = [
         .withMessage('Debe especificar una fecha en formato yyyy-mm-ddThh:mm:ss'),
 ];
 
-module.exports = { idValidator, createUpdateValidator };
+const updateValidator = [
+    body("description")
+        .notEmpty()
+        .isLength({ min: 10, max:10254 })
+        .withMessage('El concepto no puede estar vacío y debe tener al menos 10 caracteres.'),
+    body("amount")
+        .isNumeric()
+        .withMessage('Debe especificar un monto numérico')
+        .notEmpty()
+        .withMessage('Debe especificar un monto'),
+    body("date")
+        .isISO8601()
+        .toDate()
+        .withMessage('Debe especificar una fecha en formato yyyy-mm-ddThh:mm:ss'),
+];
+
+module.exports = { idValidator, createValidator, updateValidator };
