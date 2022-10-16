@@ -64,7 +64,8 @@ const api = {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()})
-        }           
+        }      
+
         Budgets.create(req.body)
             .then((data) => {
                 res.json({data:data})
@@ -80,7 +81,7 @@ const api = {
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()})
         }
-        
+
         Budgets.update(req.body, {
             where: {id: req.params.id}
         })
@@ -97,26 +98,6 @@ const api = {
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()})
-        }
-        
-        const auth = req.get('authorization');
-
-        let token = "";
-
-        if (auth && auth.toLowerCase().startsWith('bearer')) {
-            token = auth.substring(7)
-        }
-        
-        let decodeToken;
-
-        try {
-            decodeToken = jwt.verify(token, process.env.SECRET)
-        } catch (error) {
-            return res.status(401).json({error: "Invalid token or missing"})
-        }
-
-        if ( !token || !decodeToken.id ) {
-            return res.status(401).json({errors: "Invalid token or missing"})
         }
 
         Budgets.destroy({

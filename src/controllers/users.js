@@ -1,4 +1,3 @@
-
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
@@ -36,7 +35,7 @@ const Users = {
         }
 
         if(!userToLogin || !bcryptjs.compareSync(req.body.password, userToLogin.password)){
-            res.status(401).json({"msg": "Datos incorrectos"})
+            res.status(401).json({error: "Wrong password or e-mail."})
         }
 
         const tokenData = {
@@ -45,8 +44,6 @@ const Users = {
         }
 
         const token = jwt.sign(tokenData, process.env.SECRET)
-
-        //delete userToLogin.password;
 
         res.send({
             email: userToLogin.email,
