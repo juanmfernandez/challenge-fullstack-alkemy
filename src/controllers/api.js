@@ -45,18 +45,33 @@ const api = {
         if (!errors.isEmpty()) {
             return res.status(400).json({errors: errors.array()})
         }  
-
         const page = req.query.page ? req.query.page :"0";
         const size =  req.query.size ? req.query.size : "10";
+        const type =  req.query.type && (req.query.type =="egreso" || req.query.type=="ingreso") ? req.query.type : null;
         const { limit, offset } = getPagination(page, size);
+        let response = null;
+        if (type && type != null) {
+            response = await Budgets.findAndCountAll({
+                offset: parseInt(offset),
+                limit: parseInt(limit),
+                where: { type : type },
+                include: [{association: "Category"}]
+            });            
+        }
+        if (!type) {
+            response = await Budgets.findAndCountAll({
+                offset: parseInt(offset),
+                limit: parseInt(limit),
+                include: [{association: "Category"}]
+            });              
+        }  
 
-        let {count, rows} = await Budgets.findAndCountAll({
-            offset: parseInt(offset),
-            limit: parseInt(limit),
-            include: [{association: "Category"}]
-        });
+        let {count, rows} = response;
+        let totalIn = await Budgets.sum('amount', {where: { type : "ingreso" }});
+        let totalOut = await Budgets.sum('amount', {where: { type : "egreso" }});
+
         const { totalPages, currentPage, nextPage, prevPage } = getPagingData(count, page, limit) ;
-        res.json({ count, budgets : rows, totalPages, currentPage, nextPage, prevPage })
+        res.json({ totalOut, totalIn, count, budgets : rows, totalPages, currentPage, nextPage, prevPage })
     },
 
     addFlow: (req, res, next) => {

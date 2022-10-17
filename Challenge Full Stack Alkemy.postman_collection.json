@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "0ea917e5-4daf-417d-8863-e520ecf64ed6",
+		"name": "Challenge Full Stack Alkemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get flows",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJubkBtYWlsLmNvbSIsImlhdCI6MTY2NTg2MjE5OH0.S5IDGWtIXhVMJtMRQXatSpwctGhNAR6LtPfQw9Npq24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "50.67",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "test 5 de sdfsdfsdf",
+							"type": "default"
+						},
+						{
+							"key": "date",
+							"value": "2022-10-11 21:26:57",
+							"type": "default"
+						},
+						{
+							"key": "type",
+							"value": "ingreso",
+							"type": "default"
+						},
+						{
+							"key": "idUser",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "idCategory",
+							"value": "2",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/inflow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inflow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Flow",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJubkBtYWlsLmNvbSIsImlhdCI6MTY2NTg2MjE5OH0.S5IDGWtIXhVMJtMRQXatSpwctGhNAR6LtPfQw9Npq24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "amount",
+							"value": "20.67535353",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "el editado para react",
+							"type": "default"
+						},
+						{
+							"key": "date",
+							"value": "2022-10-10 16:53:49",
+							"type": "default"
+						},
+						{
+							"key": "type",
+							"value": "egreso",
+							"type": "default"
+						},
+						{
+							"key": "idUser",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "idCategory",
+							"value": "3",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/inflow/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inflow",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Flow",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJubkBtYWlsLmNvbSIsImlhdCI6MTY2NTg2MjE5OH0.S5IDGWtIXhVMJtMRQXatSpwctGhNAR6LtPfQw9Npq24",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/inflow/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"inflow",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Flows",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?page=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Flows Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/?page=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Juancito",
+							"type": "default"
+						},
+						{
+							"key": "lastName",
+							"value": "Gonzalez",
+							"type": "default"
+						},
+						{
+							"key": "email",
+							"value": "nn@mail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Lolita5&#",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "juangonzalez@mail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Lolita5&#",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User login Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "juangonzalez@mail.com",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "Lolita5&#",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
