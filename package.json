@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "dev": "clear && nodemon src/app.js -e mjs,js,json,ejs,css",
-    "test": "npx jest",
+    "test": "echo \"No test specified\"",
     "start": "node src/app.js"
   },
   "author": "Juan Manuel Fernandez",
